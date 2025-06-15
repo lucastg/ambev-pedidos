@@ -1,0 +1,50 @@
+{"idExterno": "PEDIDO-EXT-101", "itens": [{"produtoId": "PROD-ABC001", "valorUnitario": 120.50, "quantidade": 1}, {"produtoId": "PROD-XYZ003", "valorUnitario": 55.75, "quantidade": 3}]}
+{"idExterno": "PEDIDO-EXT-102", "itens": [{"produtoId": "PROD-QWE002", "valorUnitario": 30.00, "quantidade": 5}]}
+{"idExterno": "PEDIDO-EXT-103", "itens": [{"produtoId": "PROD-RTY004", "valorUnitario": 210.00, "quantidade": 1}, {"produtoId": "PROD-FGH006", "valorUnitario": 45.20, "quantidade": 2}]}
+{"idExterno": "PEDIDO-EXT-104", "itens": [{"produtoId": "PROD-JKL007", "valorUnitario": 75.90, "quantidade": 4}]}
+{"idExterno": "PEDIDO-EXT-105", "itens": [{"produtoId": "PROD-BNM008", "valorUnitario": 180.00, "quantidade": 1}, {"produtoId": "PROD-VBN009", "valorUnitario": 60.10, "quantidade": 3}, {"produtoId": "PROD-MKL010", "valorUnitario": 99.99, "quantidade": 1}]}
+{"idExterno": "PEDIDO-EXT-106", "itens": [{"produtoId": "PROD-UIO011", "valorUnitario": 40.00, "quantidade": 2}]}
+{"idExterno": "PEDIDO-EXT-107", "itens": [{"produtoId": "PROD-PPL012", "valorUnitario": 150.00, "quantidade": 1}, {"produtoId": "PROD-ASD013", "valorUnitario": 25.50, "quantidade": 6}]}
+{"idExterno": "PEDIDO-EXT-108", "itens": [{"produtoId": "PROD-FGH014", "valorUnitario": 88.88, "quantidade": 2}]}
+{"idExterno": "PEDIDO-EXT-109", "itens": [{"produtoId": "PROD-JKL015", "valorUnitario": 300.00, "quantidade": 1}]}
+{"idExterno": "PEDIDO-EXT-110", "itens": [{"produtoId": "PROD-ZXC016", "valorUnitario": 15.00, "quantidade": 10}, {"produtoId": "PROD-VBN017", "valorUnitario": 70.00, "quantidade": 2}]}
+{"idExterno": "PEDIDO-EXT-111", "itens": [{"produtoId": "PROD-NMB018", "valorUnitario": 95.00, "quantidade": 3}]}
+{"idExterno": "PEDIDO-EXT-112", "itens": [{"produtoId": "PROD-HJK019", "valorUnitario": 220.00, "quantidade": 1}, {"produtoId": "PROD-LMN020", "valorUnitario": 50.00, "quantidade": 4}]}
+{"idExterno": "PEDIDO-EXT-113", "itens": [{"produtoId": "PROD-QAZ021", "valorUnitario": 65.50, "quantidade": 2}]}
+{"idExterno": "PEDIDO-EXT-114", "itens": [{"produtoId": "PROD-WSX022", "valorUnitario": 110.00, "quantidade": 1}, {"produtoId": "PROD-EDC023", "valorUnitario": 40.75, "quantidade": 3}]}
+{"idExterno": "PEDIDO-EXT-115", "itens": [{"produtoId": "PROD-RFV024", "valorUnitario": 190.00, "quantidade": 2}]}
+{"idExterno": "PEDIDO-EXT-116", "itens": [{"produtoId": "PROD-TGB025", "valorUnitario": 80.00, "quantidade": 5}, {"produtoId": "PROD-YHN026", "valorUnitario": 20.00, "quantidade": 8}]}
+{"idExterno": "PEDIDO-EXT-117", "itens": [{"produtoId": "PROD-UJM027", "valorUnitario": 160.00, "quantidade": 1}]}
+{"idExterno": "PEDIDO-EXT-118", "itens": [{"produtoId": "PROD-IKL028", "valorUnitario": 55.00, "quantidade": 3}, {"produtoId": "PROD-OLK029", "valorUnitario": 10.50, "quantidade": 12}]}
+{"idExterno": "PEDIDO-EXT-119", "itens": [{"produtoId": "PROD-QWE030", "valorUnitario": 250.00, "quantidade": 1}]}
+{"idExterno": "PEDIDO-EXT-120", "itens": [{"produtoId": "PROD-RTY031", "valorUnitario": 70.00, "quantidade": 4}]}
+{"idExterno": "PEDIDO-EXT-121", "itens": [{"produtoId": "PROD-FGH032", "valorUnitario": 130.00, "quantidade": 2}, {"produtoId": "PROD-JKL033", "valorUnitario": 35.00, "quantidade": 7}]}
+{"idExterno": "PEDIDO-EXT-122", "itens": [{"produtoId": "PROD-ZXC034", "valorUnitario": 90.00, "quantidade": 3}]}
+{"idExterno": "PEDIDO-EXT-123", "itens": [{"produtoId": "PROD-VBN035", "valorUnitario": 18.75, "quantidade": 8}, {"produtoId": "PROD-NMB036", "valorUnitario": 12.25, "quantidade": 15}]}
+{"idExterno": "PEDIDO-EXT-124", "itens": [{"produtoId": "PROD-HJK037", "valorUnitario": 280.00, "quantidade": 1}]}
+{"idExterno": "PEDIDO-EXT-125", "itens": [{"produtoId": "PROD-LMN038", "valorUnitario": 60.00, "quantidade": 4}]}
+{"idExterno": "PEDIDO-EXT-126", "itens": [{"produtoId": "PROD-QAZ039", "valorUnitario": 140.00, "quantidade": 2}, {"produtoId": "PROD-WSX040", "valorUnitario": 28.00, "quantidade": 9}]}
+{"idExterno": "PEDIDO-EXT-127", "itens": [{"produtoId": "PROD-EDC041", "valorUnitario": 78.50, "quantidade": 3}]}
+{"idExterno": "PEDIDO-EXT-128", "itens": [{"produtoId": "PROD-RFV042", "valorUnitario": 200.00, "quantidade": 1}, {"produtoId": "PROD-TGB043", "valorUnitario": 42.00, "quantidade": 5}]}
+{"idExterno": "PEDIDO-EXT-129", "itens": [{"produtoId": "PROD-YHN044", "valorUnitario": 115.00, "quantidade": 2}]}
+{"idExterno": "PEDIDO-EXT-130", "itens": [{"produtoId": "PROD-UJM045", "valorUnitario": 50.00, "quantidade": 6}, {"produtoId": "PROD-IKL046", "valorUnitario": 18.00, "quantidade": 10}]}
+{"idExterno": "PEDIDO-EXT-131", "itens": [{"produtoId": "PROD-OLK047", "valorUnitario": 320.00, "quantidade": 1}]}
+{"idExterno": "PEDIDO-EXT-132", "itens": [{"produtoId": "PROD-QWE048", "valorUnitario": 85.00, "quantidade": 3}]}
+{"idExterno": "PEDIDO-EXT-133", "itens": [{"produtoId": "PROD-RTY049", "valorUnitario": 170.00, "quantidade": 2}, {"produtoId": "PROD-FGH050", "valorUnitario": 22.50, "quantidade": 8}]}
+{"idExterno": "PEDIDO-EXT-134", "itens": [{"produtoId": "PROD-JKL051", "valorUnitario": 99.00, "quantidade": 4}]}
+{"idExterno": "PEDIDO-EXT-135", "itens": [{"produtoId": "PROD-ZXC052", "valorUnitario": 25.00, "quantidade": 7}, {"produtoId": "PROD-VBN053", "valorUnitario": 15.75, "quantidade": 12}]}
+{"idExterno": "PEDIDO-EXT-136", "itens": [{"produtoId": "PROD-NMB054", "valorUnitario": 230.00, "quantidade": 1}]}
+{"idExterno": "PEDIDO-EXT-137", "itens": [{"produtoId": "PROD-HJK055", "valorUnitario": 70.00, "quantidade": 5}]}
+{"idExterno": "PEDIDO-EXT-138", "itens": [{"produtoId": "PROD-LMN056", "valorUnitario": 105.00, "quantidade": 3}, {"produtoId": "PROD-QAZ057", "valorUnitario": 33.00, "quantidade": 6}]}
+{"idExterno": "PEDIDO-EXT-139", "itens": [{"produtoId": "PROD-WSX058", "valorUnitario": 160.00, "quantidade": 2}]}
+{"idExterno": "PEDIDO-EXT-140", "itens": [{"produtoId": "PROD-EDC059", "valorUnitario": 48.00, "quantidade": 9}, {"produtoId": "PROD-RFV060", "valorUnitario": 12.00, "quantidade": 15}]}
+{"idExterno": "PEDIDO-EXT-141", "itens": [{"produtoId": "PROD-TGB061", "valorUnitario": 28.50, "quantidade": 10}]}
+{"idExterno": "PEDIDO-EXT-142", "itens": [{"produtoId": "PROD-YHN062", "valorUnitario": 210.00, "quantidade": 1}, {"produtoId": "PROD-UJM063", "valorUnitario": 60.00, "quantidade": 4}]}
+{"idExterno": "PEDIDO-EXT-143", "itens": [{"produtoId": "PROD-IKL064", "valorUnitario": 92.00, "quantidade": 3}]}
+{"idExterno": "PEDIDO-EXT-144", "itens": [{"produtoId": "PROD-OLK065", "valorUnitario": 190.00, "quantidade": 2}, {"produtoId": "PROD-QWE066", "valorUnitario": 27.00, "quantidade": 7}]}
+{"idExterno": "PEDIDO-EXT-145", "itens": [{"produtoId": "PROD-RTY067", "valorUnitario": 75.00, "quantidade": 5}]}
+{"idExterno": "PEDIDO-EXT-146", "itens": [{"produtoId": "PROD-FGH068", "valorUnitario": 13.50, "quantidade": 12}, {"produtoId": "PROD-JKL069", "valorUnitario": 8.75, "quantidade": 20}]}
+{"idExterno": "PEDIDO-EXT-147", "itens": [{"produtoId": "PROD-ZXC070", "valorUnitario": 260.00, "quantidade": 1}]}
+{"idExterno": "PEDIDO-EXT-148", "itens": [{"produtoId": "PROD-VBN071", "valorUnitario": 40.00, "quantidade": 8}]}
+{"idExterno": "PEDIDO-EXT-149", "itens": [{"produtoId": "PROD-NMB072", "valorUnitario": 100.00, "quantidade": 3}, {"produtoId": "PROD-HJK073", "valorUnitario": 19.99, "quantidade": 9}]}
+{"idExterno": "PEDIDO-EXT-150", "itens": [{"produtoId": "PROD-LMN074", "valorUnitario": 150.00, "quantidade": 2}]}
