@@ -39,65 +39,40 @@ docker compose up --build -d
 ---
 # Decisões Técnicas
 
-Esta seção detalha as principais decisões técnicas e arquiteturais que guiaram o desenvolvimento do projeto, visando garantir robustez, escalabilidade, manutenibilidade e eficiência.
-
 ### Linguagem e Framework
 
-- Java 17 e Spring Boot:
-
-    A escolha por Java em conjunto com o framework Spring Boot, alem de ser um requisito do teste baseia-se na sua comprovada robustez, escalabilidade e maturidade no mercado. O Spring Boot, em particular, acelera o desenvolvimento com sua convenção sobre configuração e ecossistema abrangente de módulos, facilitando a criação de aplicações API RESTful.
+- **Java 17 e Spring Boot:** Escolha baseada na robustez, escalabilidade e maturidade do Java e Spring Boot para APIs RESTful. O Spring Boot acelera o desenvolvimento e sua vasta comunidade garante fácil manutenção e suporte.
 
 ### Arquitetura do Sistema
-- Arquitetura de Ports and Adapters (Arquitetura Hexagonal): A arquitetura de Ports and Adapters para garantir que a lógica de negócio (dominio) permaneça desacoplada de detalhes de infraestrutura (banco de dados, mensageria, APIs externas), isto oferece:
-
-    - **Versatilidade e Volatilidade:** Facilita a substituição de componentes de infraestrutura (ex: trocar de banco de dados, de broker de mensagens) sem impactar o domínio principal.
-    - **Testabilidade:** Permite que a lógica de negócio seja testada independentemente, sem a necessidade de levantar todo o ambiente de infraestrutura.
-    - **Manutenibilidade:** Melhora a organização do código, tornando-o mais fácil de entender e modificar.
+- **Arquitetura de Ports and Adapters (Arquitetura Hexagonal):** Adotada para desacoplar a lógica de negócio da infraestrutura, proporcionando:
+    - **Versatilidade:** Facilita a troca de componentes de infraestrutura (banco de dados, mensageria) sem impactar o domínio.
+    - **Testabilidade:** Permite testes independentes da lógica de negócio.
+    - **Manutenibilidade:** Melhora a organização e facilita modificações.
 
 ### Mensageria Assíncrona
-- **RabbitMQ para Processamento Assíncrono de Pedidos:** A decisão de utilizar o RabbitMQ foi estratégica para lidar com a alta volumetria de pedidos (100 a 200 mil pedidos/dia, conforme o desafio). O RabbitMQ, como um Message Broker robusto e maduro, permite:
-
-    - Desacoplamento: Separa o produtor de pedidos (Produto Externo A) do consumidor (serviço order), evitando que picos de demanda sobrecarreguem diretamente o serviço.
-    - Resiliência: As mensagens são persistidas nas filas, garantindo que os pedidos não se percam em caso de falha do serviço order.
-    - Escalabilidade: Permite escalar horizontalmente os consumidores do serviço order para processar mensagens em paralelo, atendendo à demanda.
-    - Comunicação Eficiente: Facilita a comunicação assíncrona e confiável com outros serviços externos (Produto Externo B), fundamental para a integração proposta no desafio.
-    - Controle de Concorrência e Disponibilidade: Ajuda a gerenciar a concorrência no processamento e garante a disponibilidade do serviço, mesmo sob alta carga.
+- **RabbitMQ para Processamento de Pedidos:** Essencial para lidar com alta volumetria (100-200 mil pedidos/dia). O RabbitMQ garante:
+    - **Desacoplamento:** Separa o Produto Externo A do consumidor (serviço order), evitando que picos de demanda sobrecarreguem diretamente o serviço.
+    - **Resiliência:** As mensagens são persistidas nas filas, garantindo que os pedidos não se percam em caso de falha do serviço order.
+    - **Escalabilidade:** Permite escalar horizontalmente os consumidores do serviço order para processar mensagens em paralelo, atendendo à demanda.
+    - **Comunicação Eficiente:** Facilita integração assíncrona com serviços externos.
+    - **Controle de Concorrência e Disponibilidade:** Contribui para a alta disponibilidade sob alta carga.
 
 ### Banco de Dados
-- **PostgreSQL:** Escolhido como o sistema de gerenciamento de banco de dados relacional (SGBD) devido à sua:
-    - Robustez e Confiabilidade: Conhecido por sua estabilidade e integridade de dados.
-    - Escalabilidade: Capaz de lidar com grandes volumes de dados e alta concorrência, o que é crucial para o gerenciamento de pedidos.
-    - Conformidade SQL: Oferece um conjunto rico de recursos e conformidade com padrões SQL.
-    - Licença Permissiva: É um SGBD open-source com uma licença liberal.
-  
-
-- **Spring Data JPA e Hibernate:** Utilizados para a camada de persistência, simplificando o acesso a dados e o mapeamento objeto-relacional (ORM). O Spring Data JPA reduz significativamente o boilerplate code para operações CRUD, permitindo focar na lógica de negócio.
+- **PostgreSQL:** SGBD relacional escolhido por sua robustez, confiabilidade, escalabilidade e conformidade SQL, crucial para o volume de dados de pedidos.
+- **Spring Data JPA e Hibernate:** Simplifica o acesso a dados e o mapeamento do objeto, reduzindo o código para operações CRUD.
 
 ### Containerização e Implantação
-- **Docker e Docker Compose:** A aplicação é totalmente conteinerizada usando Docker, o que garante:
-    - Ambiente Consistente: Elimina problemas de "funciona na minha máquina", empacotando a aplicação e suas dependências em um ambiente isolado e portátil.
-    - Facilidade de Implantação: Simplifica o processo de implantação em qualquer ambiente que suporte Docker (local, desenvolvimento, produção).
-    - Orquestração Local: O Docker Compose permite orquestrar múltiplos serviços (aplicação, banco de dados, RabbitMQ) para um ambiente de desenvolvimento e teste local rápido e consistente.
-
-
-- **Hospedagem no Render:** A escolha do Render para demonstração se deu pela sua facilidade de uso para deploy contínuo de aplicações Spring Boot e PostgreSQL, permitindo uma rápida visualização e teste do projeto. A consideração do "cold start" foi documentada para gerenciar expectativas do usuário.
+- **Docker e Docker Compose:** Garantem um ambiente consistente e portátil, simplificando o desenvolvimento e a implantação da aplicação e suas dependências (banco de dados, RabbitMQ).
+- **Hospedagem no Render:** Utilizado para demonstração pela facilidade de deploy contínuo, com a observação sobre "cold start" para gerenciar expectativas de desempenho inicial.
 
 ### Qualidade de Código
-- **Testes Unitários e de Integração:** Priorizamos a escrita de testes abrangentes (com JUnit 5, Mockito e AssertJ) para garantir a corretude da lógica de negócio e a integração entre os componentes.
-    - Testes de Repositório com H2: Para os testes de integração da camada de persistência, utilizamos o H2 (banco de dados em memória) devido à sua alta performance e facilidade de setup, proporcionando testes rápidos e isolados.
-
-
-- **Tratamento de Exceções:** Implementação de um tratamento de exceções centralizado para garantir respostas de erro consistentes e claras da API (utilizando @ControllerAdvice ou abordagens similares no Spring Boot), diferenciando 404 Not Found, 400 Bad Request, 409 Conflict, etc.
-- **Boas Práticas de Código:** Aderência a padrões de código limpo, convenções de nomenclatura e princípios SOLID para garantir um código legível, manutenível e extensível.
+- **Testes Unitários e de Integração:** Nescessarios para a validação da lógica de negócio e integração entre componentes.
+  - **Testes de Repositório com H2:** Uso de banco de dados em memória para alta performance e isolamento nos testes de integração da camada de persistência.
+- **Tratamento de Exceções:** Implementação centralizada para respostas de erro consistentes e claras da API.
+- **Boas Práticas de Código:** Aderência a padrões como código limpo, convenções de nomenclatura e princípios SOLID para manutenibilidade e extensibilidade.
 
 ## Pontos de Desafio e Respostas
-- **Verificação de Duplicação de Pedidos:** A implementação inclui mecanismos para verificar e lidar com a duplicação de pedidos, provavelmente utilizando o idExterno como um identificador único para idempotência, evitando reprocessamento e inconsistências.
-
-
-- **Disponibilidade do Serviço com Alta Volumetria:** A combinação de RabbitMQ (para desacoplamento e filas), Spring Boot (para escalabilidade horizontal e resiliência) e PostgreSQL (para robustez do BD) é a estratégia para garantir alta disponibilidade e gerenciamento eficaz da volumetria.
-
-
-- **Consistência dos Dados e Concorrência:** A utilização de um SGBD relacional como PostgreSQL oferece transações ACID, que são cruciais para a consistência dos dados. O controle de concorrência é gerenciado tanto pelas transações do banco quanto pela natureza assíncrona do RabbitMQ, que distribui a carga de processamento.
-
-
-- **Engargalamento do Banco Escolhido:** Com a volumetria citada, o PostgreSQL é uma escolha sólida. Estratégias como índices adequados, otimização de queries, e a distribuição de carga via RabbitMQ minimizam o risco de gargalo no banco. A configuração padrão otimizada do PostgreSQL é robusta.
+- **Verificação de Duplicação de Pedidos:** Mecanismos implementados, como o uso do idExterno para idempotência, evitam reprocessamento e inconsistências.
+- **Disponibilidade do Serviço com Alta Volumetria:** A combinação de RabbitMQ, Spring Boot (escalabilidade horizontal) e PostgreSQL (robustez do BD) assegura alta disponibilidade.
+- **Consistência dos Dados e Concorrência:** Garantida por transações ACID do PostgreSQL e pela distribuição de carga via RabbitMQ.
+- **Engargalamento do Banco Escolhido:** PostgreSQL é uma escolha robusta; otimização de queries, índices e a distribuição de carga pela mensageria mitigam esse risco.
