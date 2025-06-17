@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class GlobalDefaultExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(RecursoNaoEncontratoException.class)
-    private ResponseEntity<ProblemDetail> handleResourceNotFound(RecursoNaoEncontratoException ex) {
+    protected ResponseEntity<ProblemDetail> handleResourceNotFound(RecursoNaoEncontratoException ex) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
         problemDetail.setTitle(HttpStatus.NOT_FOUND.getReasonPhrase());
 
@@ -22,7 +22,7 @@ public class GlobalDefaultExceptionHandler extends ResponseEntityExceptionHandle
     }
 
     @ExceptionHandler(RecursoJaExisteException.class)
-    private ResponseEntity<ProblemDetail> handleResourceBadRequest(RecursoJaExisteException ex) {
+    protected ResponseEntity<ProblemDetail> handleResourceBadRequest(RecursoJaExisteException ex) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, ex.getMessage());
         problemDetail.setTitle(HttpStatus.BAD_REQUEST.getReasonPhrase());
 
@@ -31,7 +31,7 @@ public class GlobalDefaultExceptionHandler extends ResponseEntityExceptionHandle
     }
 
     @ExceptionHandler(PedidoDuplicadoException.class)
-    private ResponseEntity<ProblemDetail> handleResourceConflict(PedidoDuplicadoException ex) {
+    protected ResponseEntity<ProblemDetail> handleResourceConflict(PedidoDuplicadoException ex) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
         problemDetail.setTitle(HttpStatus.CONFLICT.getReasonPhrase());
 

@@ -2,6 +2,7 @@ package com.myproject.orders.application.presenters.responses;
 
 import com.myproject.orders.domain.enums.StatusPedido;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class PedidoResponseDto {
     private Long id;
     private String idExterno;

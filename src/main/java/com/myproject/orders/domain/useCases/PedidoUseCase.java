@@ -3,11 +3,11 @@ package com.myproject.orders.domain.useCases;
 import com.myproject.orders.application.presenters.mappers.PedidoMapper;
 import com.myproject.orders.application.presenters.requests.PedidoRequestDto;
 import com.myproject.orders.application.presenters.responses.PedidoResponseDto;
-import com.myproject.orders.domain.entities.Item;
 import com.myproject.orders.domain.entities.Pedido;
 import com.myproject.orders.domain.enums.StatusPedido;
 import com.myproject.orders.domain.exception.PedidoDuplicadoException;
 import com.myproject.orders.domain.exception.RecursoNaoEncontratoException;
+import com.myproject.orders.domain.helpers.CalculadoraPedidoService;
 import com.myproject.orders.domain.ports.in.PedidoUseCasePort;
 import com.myproject.orders.domain.ports.out.PedidoPersistancePort;
 import com.myproject.orders.domain.ports.out.PedidoQueueOutPort;
@@ -40,6 +40,9 @@ public class PedidoUseCase implements PedidoUseCasePort {
     private PedidoQueueOutPort pedidoQueueOutPort;
 
     @Autowired
+    private CalculadoraPedidoService calculadoraPedidoService;
+
+    @Autowired
     PedidoPersistancePort pedidoPersistancePort;
 
     private static final Logger logger = LoggerFactory.getLogger(PedidoUseCase.class);
@@ -53,14 +56,7 @@ public class PedidoUseCase implements PedidoUseCasePort {
 
     @Override
     public Pedido processarPedidoCore(Pedido pedido) {
-        BigDecimal valorTotalDoPedido = BigDecimal.ZERO;
-        if (pedido.getItens() != null) {
-            for (Item item : pedido.getItens()) {
-                BigDecimal valorTotalItem = item.getValorUnitario().multiply(BigDecimal.valueOf(item.getQuantidade()));
-                item.setValorTotalItem(valorTotalItem);
-                valorTotalDoPedido = valorTotalDoPedido.add(valorTotalItem);
-            }
-        }
+        BigDecimal valorTotalDoPedido = calculadoraPedidoService.calcularValorTotalPedido(pedido);
         pedido.setValorTotal(valorTotalDoPedido);
         pedido.setStatus(StatusPedido.PROCESSANDO);
 
@@ -68,12 +64,12 @@ public class PedidoUseCase implements PedidoUseCasePort {
         logger.info("Pedido {} (ID Externo: {}) salvo com status inicial: {}", pedidoSalvo.getId(), pedidoSalvo.getIdExterno(), pedidoSalvo.getStatus());
 
         pedidoSalvo.setStatus(StatusPedido.PROCESSADO);
-        pedidoPersistancePort.salvarPedido(pedidoSalvo);
-        logger.info("Pedido {} (ID Externo: {}) salvo com status: {}", pedidoSalvo.getId(), pedidoSalvo.getIdExterno(), pedidoSalvo.getStatus());
+        Pedido pedidoFinal = pedidoPersistancePort.salvarPedido(pedidoSalvo);
+        logger.info("Pedido {} (ID Externo: {}) salvo com status: {}", pedidoFinal.getId(), pedidoFinal.getIdExterno(), pedidoFinal.getStatus());
 
-        PedidoResponseDto pedidoResponseDto = pedidoMapper.toResponseDto(pedidoSalvo);
+        PedidoResponseDto pedidoResponseDto = pedidoMapper.toResponseDto(pedidoFinal);
         pedidoQueueOutPort.publishMessage(pedidoResponseDto);
-        return pedidoSalvo;
+        return pedidoFinal;
     }
 
     private void validarDuplicidade(String idExterno) throws PedidoDuplicadoException {

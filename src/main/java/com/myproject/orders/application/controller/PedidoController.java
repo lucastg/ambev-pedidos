@@ -93,7 +93,7 @@ public class PedidoController {
             @ApiResponse(responseCode = "500", description = "Erro interno no servidor.")
     })
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarPedido(@RequestParam(value = "id") Long id) {
+    public ResponseEntity<Void> deletarPedido(@PathVariable(value = "id") Long id) {
         pedidoUseCasePort.deletarPedido(id);
         return ResponseEntity.noContent().build();
     }
