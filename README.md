@@ -76,3 +76,5 @@ docker compose up --build -d
 - **Disponibilidade do Serviço com Alta Volumetria:** A combinação de RabbitMQ, Spring Boot (escalabilidade horizontal) e PostgreSQL (robustez do BD) assegura alta disponibilidade.
 - **Consistência dos Dados e Concorrência:** Garantida por transações ACID do PostgreSQL e pela distribuição de carga via RabbitMQ.
 - **Engargalamento do Banco Escolhido:** PostgreSQL é uma escolha robusta; otimização de queries, índices e a distribuição de carga pela mensageria mitigam esse risco.
+
+![Arquitetura](https://github.com/user-attachments/assets/0703c047-0da8-49f1-b4a7-a63b624c26e1)
