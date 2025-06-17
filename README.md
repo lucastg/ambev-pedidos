@@ -49,7 +49,7 @@ docker compose up --build -d
     - **Testabilidade:** Permite testes independentes da lógica de negócio.
     - **Manutenibilidade:** Melhora a organização e facilita modificações.
 
-### Mensageria Assíncrona
+### Mensageria
 - **RabbitMQ para Processamento de Pedidos:** Essencial para lidar com alta volumetria (100-200 mil pedidos/dia). O RabbitMQ garante:
     - **Desacoplamento:** Separa o Produto Externo A do consumidor (serviço order), evitando que picos de demanda sobrecarreguem diretamente o serviço.
     - **Resiliência:** As mensagens são persistidas nas filas, garantindo que os pedidos não se percam em caso de falha do serviço order.
