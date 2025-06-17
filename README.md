@@ -1,6 +1,6 @@
 # Ambev Pedidos API
 
-Esta API foi desenvolvida para o gerenciamento de pedidos e produtos, servindo como um backend robusto e escalável para aplicações de e-commerce ou sistemas de gestão de pedidos.
+Esta API foi desenvolvida para o gerenciamento de pedidos e produtos, servindo como um backend robusto e escalável para de gestão de pedidos.
 
 ## 🚀 Tecnologias Utilizadas
 
