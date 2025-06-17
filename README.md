@@ -77,4 +77,5 @@ docker compose up --build -d
 - **Consistência dos Dados e Concorrência:** Garantida por transações ACID do PostgreSQL e pela distribuição de carga via RabbitMQ.
 - **Engargalamento do Banco Escolhido:** PostgreSQL é uma escolha robusta; otimização de queries, índices e a distribuição de carga pela mensageria mitigam esse risco.
 
+## Desenho da arquitetura
 ![Arquitetura](https://github.com/user-attachments/assets/0703c047-0da8-49f1-b4a7-a63b624c26e1)
